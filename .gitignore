@@ -1,0 +1,16 @@
+# Gitignore für das Zahlenprojekt
+*.class
+
+*.jar
+*.war
+*.ear
+/bin/
+
+# vi etc
+*~
+*.bak
+
+# Eclipse
+.classpath
+.project
+.settings/
