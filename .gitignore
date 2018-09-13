@@ -1,10 +1,11 @@
-# Gitignore für das Zahlenprojekt
+ï»¿# Gitignore fï¿½r das Zahlenprojekt
 *.class
 
 *.jar
 *.war
 *.ear
 /bin/
+doc/
 
 # vi etc
 *~
@@ -14,3 +15,4 @@
 .classpath
 .project
 .settings/
+
