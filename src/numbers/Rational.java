@@ -6,9 +6,9 @@ package numbers;
  * <p> Eine Klasse für rationale Zahlen, realisiert als Bruch aus ganzen Zahlen. 
  * Abgeleitet von Zahl.java. </p>
  * 
- * <P>Letzte Änderung: $Date: 2018/09/10 $</p> 
- * @author $Author: brill $
- * @version $Revision: #1 $
+ * <P>Letzte Änderung: $Date: 2018/09/13 $</p> 
+ * @author $Author: demirci $
+ * @version $Revision: #2 $
  */
 
 import java.util.Scanner;

@@ -1,14 +1,14 @@
 package numbers;
 
 /**
- * Eine Main Klasse.
+ * Eine Main Klasse mit 4 Grundrechenarten.
  * 
  * <p> Durch die Klasse wird vorgegeben, dass die 4 Grundrechenarten und die Ausgabe der Zahl
  * implementiert werden müssen. </p>
  * 
- * <P>Letzte Änderung: $Date: 2018/09/10 $</p> 
- * @author $Author: brill $
- * @version $Revision: #1 $
+ * <P>Letzte Änderung: $Date: 2018/09/13 $</p> 
+ * @author $Author: demirci $
+ * @version $Revision: #2 $
  */
 
 public class App {
