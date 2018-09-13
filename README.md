@@ -12,5 +12,11 @@ Das Repository enthält aktuell die folgenden Klassen:
 - RationalTest.java: JUnit-Test. Sie können diese Datei ignorieren, wenn Sie keine Unit-Tests durchführen möchten.
 - Bruch.java: kleines Programm, hier werden Eingaben für einen Bruch getätigt, dieser Bruch wird wenn möglich gekürzt und ausgegeben.
 
+## Dokumentation
+- html-Verzeichnis: Eine Dokumentation mit Doxygen
+
 ## Release
-- Es gibt eine fertige Version, diese ist Release1.
+- Eine fertige Version, diese ist Release1 ist Online.
+- Eine weiterer Release2 ist nun Online.
+
+
