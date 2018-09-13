@@ -16,7 +16,7 @@ Das Repository enthält aktuell die folgenden Klassen:
 - html-Verzeichnis: Eine Dokumentation mit Doxygen
 
 ## Release
-- Eine fertige Version, diese ist Release1 ist Online.
+- Eine fertige Version Release1 ist Online.
 - Eine weiterer Release2 ist nun Online.
 
 
