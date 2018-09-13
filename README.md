@@ -11,3 +11,6 @@ Das Repository enthält aktuell die folgenden Klassen:
 - App.java: kleines Beispiel mit den Grundrechenarten und Ausgaben zum Verifizieren.
 - RationalTest.java: JUnit-Test. Sie können diese Datei ignorieren, wenn Sie keine Unit-Tests durchführen möchten.
 - Bruch.java: kleines Programm, hier werden Eingaben für einen Bruch getätigt, dieser Bruch wird wenn möglich gekürzt und ausgegeben.
+
+## Release
+- Es gibt eine fertige Version, diese ist Release1.
