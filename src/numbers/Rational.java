@@ -62,10 +62,10 @@ public class Rational extends Zahl {
 	}
 	
 	/**
-	 * Kopierkonstruktor
+	 * Kopierkonstruktor.
 	 * 
-	 * Aus dem übergebenen Objekt werden Zaehler und Nenner ermittelt und zur 
-	 * Weiterverarbeitung weitergereicht.
+	 * <p>Aus dem übergebenen Objekt werden Zaehler und Nenner ermittelt und zur 
+	 * Weiterverarbeitung weitergereicht.</p>
 	 * 
 	 * @param other Rationale Zahl, der kopiert wird
 	 */
@@ -124,11 +124,13 @@ public class Rational extends Zahl {
 
 	}
 
-	/** ??????????????????????????????????????????????????????
-	 * <p>Werte für Zähler und Nenner werden festgelegt, der Zähler wird mit dem übergebenen Wert i
-	 * und der Nenner mit dem Wert im Konstruktor festgelegten Wert festgelegt. </p>
+	/** 
+	 * Konstruktion einer Rationalen Zahl.
 	 * 
-	 * <p>Das Objekt wird an die nächste Methode weitergereicht.
+	 * <p>Eine Rationale Zahl wird zusammengestellt, auch die Membervariablen p und q werden durch
+	 * den entsprechenden Konstrukor initialisiert.</p>
+	 * 
+	 * <p>Die rationale Zahl wird an die nächste Methode weitergereicht.
 	 * Der Bruch wird anschließend gekürzt.</p>
 	 * 
 	 * @param i Zähler wird festgelegt mit dem Parameter
@@ -141,7 +143,8 @@ public class Rational extends Zahl {
 
 	/**
 	 * Subtraktion zweier Brüche.
-	 * Zwei Brüche werden miteinander subrahiert.
+	 * 
+	 * <p>Zwei Brüche werden miteinander subrahiert.</p>
 	 * 
 	 * @param z Objekt mit den Werten aus Zähler und Nenner
 	 */
@@ -152,10 +155,12 @@ public class Rational extends Zahl {
 		kuerzen();
 	}
 
-	/** ??????????????????????????????????????????????????????
-	 * <p>Werte für Zähler und Nenner werden festgelegt, der Zähler wird mit dem übergebenen Wert i
-	 * und der Nenner mit dem Wert im Konstruktor festgelegten Wert festgelegt. </p>
+	/** 
+	 * Konstruktion einer Rationalen Zahl.
 	 * 
+	 * <p>Eine Rationale Zahl wird zusammengestellt, auch die Membervariablen p und q werden durch
+	 * den entsprechenden Konstrukor initialisiert.</p>
+	 * 	 * 
 	 * <p>Das Objekt wird an die nächste Methode weitergereicht.
 	 * Der Bruch wird anschließend gekürzt.</p>
 	 * 
@@ -169,7 +174,8 @@ public class Rational extends Zahl {
 	
 	/**
 	 * Multiplikation zweier Brüche.
-	 * Zwei Brüche werden miteinander multipliziert.
+	 * 
+	 * <p>Zwei Brüche werden miteinander multipliziert.</p>
 	 * 
 	 * @param z Objekt mit den Werten aus Zähler und Nenner
 	 */
@@ -180,9 +186,11 @@ public class Rational extends Zahl {
 		kuerzen();
 	}
 
-	/** ??????????????????????????????????????????????????????
-	 * <p>Werte für Zähler und Nenner werden festgelegt, der Zähler wird mit dem übergebenen Wert i
-	 * und der Nenner mit dem Wert im Konstruktor festgelegten Wert festgelegt. </p>
+	/** 
+	 * Konstruktion einer Rationalen Zahl.
+	 * 
+	 * <p>Eine Rationale Zahl wird zusammengestellt, auch die Membervariablen p und q werden durch
+	 * den entsprechenden Konstrukor initialisiert.</p>
 	 * 
 	 * <p>Das Objekt wird an die nächste Methode weitergereicht.
 	 * Der Bruch wird anschließend gekürzt.</p>
@@ -197,7 +205,8 @@ public class Rational extends Zahl {
 
 	/**
 	 * Division zweier Brüche.
-	 * Zwei Brüche werden miteinander dividiert.
+	 * 
+	 * <p>Zwei Brüche werden miteinander dividiert.</p>
 	 * 
 	 * @param z Objekt mit den Werten aus Zähler und Nenner
 	 */
@@ -208,9 +217,11 @@ public class Rational extends Zahl {
 		kuerzen();		
 	}
 
-	/** ??????????????????????????????????????????????????????
-	 * <p>Werte für Zähler und Nenner werden festgelegt, der Zähler wird mit dem übergebenen Wert i
-	 * und der Nenner mit dem Wert im Konstruktor festgelegten Wert festgelegt. </p>
+	/** 
+	 * Konstruktion einer Rationalen Zahl.
+	 * 
+	 * <p>Eine Rationale Zahl wird zusammengestellt, auch die Membervariablen p und q werden durch
+	 * den entsprechenden Konstrukor initialisiert.</p>
 	 * 
 	 * <p>Das Objekt wird an die nächste Methode weitergereicht.
 	 * Der Bruch wird anschließend gekürzt.</p>
@@ -226,8 +237,8 @@ public class Rational extends Zahl {
 	/**
 	 * Kehrwert eines Bruchs.
 	 * 
-	 * Der Bruch wird in seinen Kehrwert umgestellt, und sichergestellt das der Nenner keine 0 ist.
-	 * Den Kehrwert eines Bruchs erhält man durch Vertauschen von Zähler und Nenner.
+	 * <p>Der Bruch wird in seinen Kehrwert umgestellt, und sichergestellt das der Nenner keine 0 ist.
+	 * Den Kehrwert eines Bruchs erhält man durch Vertauschen von Zähler und Nenner.</p>
 	 */
 	public void kehrwert() {
 		int temp = p;
@@ -246,8 +257,8 @@ public class Rational extends Zahl {
 	/**
 	 * Bruch kürzen.
 	 * 
-	 * Der vorhandene Bruch wird gekürzt. In einer eigenen Methode wird der Größte gemeinsame Teiler
-	 * ermittelt. Auch negative Brüche sind berücksichtigt.
+	 * <p>Der vorhandene Bruch wird gekürzt. In einer eigenen Methode wird der Größte gemeinsame Teiler
+	 * ermittelt. Auch negative Brüche sind berücksichtigt.</p>
 	 */
 	public void kuerzen() {
 		// Vorzeichen merken und Betrag bilden
@@ -307,7 +318,13 @@ public class Rational extends Zahl {
 		return x;
 	}
 
-	
+	/**
+	 * Zwei Rationale Zahlen (Brüche) werden miteinander addiert.
+	 * 
+	 * @param a Rationale Zahl
+	 * @param b Rationale Zahl
+	 * @return Eine rationale Zahl (Ergebnis der Berechnung)
+	 */
 	public Rational add(Rational a, Rational b) {
 
 		a.add(b);
@@ -315,6 +332,15 @@ public class Rational extends Zahl {
 
 	}
 
+	/**
+	 * Subraktion zweier rationalen Zahlen.
+	 * 
+	 * <p>Erste rationale Zahl subtrahiert durch die zweite rationale Zahl.</p>
+	 * 
+	 * @param a Rationale Zahl
+	 * @param b Rationale Zahl
+	 * @return Eine rationale Zahl (Ergebnis der Berechnung)
+	 */
 	public Rational sub(Rational a, Rational b) {
 
 		a.sub(b);
@@ -322,6 +348,15 @@ public class Rational extends Zahl {
 
 	}
 
+	/**
+	 * Division zweier rationalen Zahlen.
+	 * 
+	 * <p>Erste rationale Zahl dividiert durch die zweite rationale Zahl.</p>
+	 * 
+	 * @param a Rationale Zahl
+	 * @param b Rationale Zahl
+	 * @return Eine rationale Zahl (Ergebnis der Berechnung)
+	 */
 	public Rational div(Rational a, Rational b) {
 
 		a.div(b);
@@ -329,6 +364,13 @@ public class Rational extends Zahl {
 
 	}
 
+	/**
+	 * Multiplikation zweier rationalen Zahlen.
+	 *   
+	 * @param a Rationale Zahl
+	 * @param b Rationale Zahl
+	 * @return Eine rationale Zahl (Ergebnis der Berechnung)
+	 */
 	public Rational mul(Rational a, Rational b) {
 
 		a.mul(b);
@@ -339,8 +381,8 @@ public class Rational extends Zahl {
 	/**
 	 * Eingabe zweier Zahlen und Ausgabe als gekürzten Bruch.
 	 * 
-	 * Die eingegebenen Zahlen sollen einen Bruch ergeben, die erste Zahl ist der Zähler, die zweite 
-	 * Zahl der Nenner. Der eingegebene Bruch wird in gekürzter Form wieder ausgegeben.
+	 * <p>Die eingegebenen Zahlen sollen einen Bruch ergeben, die erste Zahl ist der Zähler, die zweite 
+	 * Zahl der Nenner. Der eingegebene Bruch wird in gekürzter Form wieder ausgegeben.</p>
 	 */
 	public void eingabe() {
 		Scanner sc = new Scanner(System.in);
