@@ -1,23 +1,59 @@
 package numbers;
 
+/**
+ * Eine Klasse für rationale Zahlen.
+ * 
+ * <p> Eine Klasse für rationale Zahlen, realisiert als Bruch aus ganzen Zahlen. 
+ * Abgeleitet von Zahl.java. </p>
+ * 
+ * <P>Letzte Änderung: $Date: 2018/09/10 $</p> 
+ * @author $Author: brill $
+ * @version $Revision: #1 $
+ */
+
 import java.util.Scanner;
 
 public class Rational extends Zahl {
-
+	
+	/**
+	 * Zähler
+	 */
 	private int p;
+	
+	/**
+	 * Nenner
+	 */	
 	private int q;
 
+	/**
+	 * Ein Bruch.
+	 * 
+	 * <p> Zähler und Nenner werden mit dem Wert 1 initialisiert und wir erhalten einen 
+	 * Anfangsbruch von 1/1. </p>
+	 */
 	public Rational() {
 		this.p = 1;
 		this.q = 1;
 
 	}
 
+	/**
+	 * Ein Bruch mit übergebenem Zähler und einem Nenner = 1.
+	 * 
+	 * @param z Zähler
+	 */
 	public Rational(int z) {
 		this.p = z;
 		this.q = 1;
 	}
 
+	/**
+	 * Ein Bruch mit übergebenem Zähler und Nenner.
+	 * Nenner darf nicht 0 sein. Der Bruch wird gekürzt.
+	 * 
+	 * @param z Zähler
+	 * @param n Nenner
+	 */
 	public Rational(int z, int n) {
 		this.p = z;
 		this.q = n;
@@ -25,14 +61,30 @@ public class Rational extends Zahl {
 		kuerzen();
 	}
 	
+	/**
+	 * Kopierkonstruktor
+	 * 
+	 * Aus dem übergebenen Objekt werden Zaehler und Nenner ermittelt und zur 
+	 * Weiterverarbeitung weitergereicht.
+	 * 
+	 * @param other Rationale Zahl, der kopiert wird
+	 */
 	public Rational(Rational other) {
 		this(other.zaehler(), other.nenner());
 	}
 
+	/**
+	 * Ausgabe des Bruches.
+	 */
 	public void print() {
 		System.out.println(p + "/" + q);
 	}
 	
+	/**
+	 * Überschreiben der Funktion toString für Konsolenausgaben.
+	 * 
+	 *  @return Ein String, der den Bruch beschreibt.
+	 */
 	@Override
 	public String toString() {
 		String text = "";
@@ -40,14 +92,30 @@ public class Rational extends Zahl {
 		return text;
 	}
 	
+	/**
+	 * Abfrage des aktuell hinerlegten Wertes für den Zähler.	
+	 * 
+	 * @return Der Zähler wird als Integerwert mitgeteilt
+	 */
 	public int zaehler() {
 		return p;
 	}
 	
+	/**
+	 * Abfrage des aktuell hinerlegten Wertes für den Nenner.	
+	 * 
+	 * @return Der Nenner wird als Integerwert mitgeteilt
+	 */
 	public int nenner() {
 		return q;
 	}
 
+	/**
+	 * Addition zweier Brüche.
+	 * Zwei Brüche werden miteinander addiert.
+	 * 
+	 * @param z Objekt mit den Werten aus Zähler und Nenner
+	 */
 	public void add(Zahl z) {
 		Rational local = (Rational) z;
 		p = p * local.q + local.p * q;
@@ -56,12 +124,27 @@ public class Rational extends Zahl {
 
 	}
 
+	/** ??????????????????????????????????????????????????????
+	 * <p>Werte für Zähler und Nenner werden festgelegt, der Zähler wird mit dem übergebenen Wert i
+	 * und der Nenner mit dem Wert im Konstruktor festgelegten Wert festgelegt. </p>
+	 * 
+	 * <p>Das Objekt wird an die nächste Methode weitergereicht.
+	 * Der Bruch wird anschließend gekürzt.</p>
+	 * 
+	 * @param i Zähler wird festgelegt mit dem Parameter
+	 */
 	public void add(int i) {
 		Rational local = new Rational(i);
 		add(local);
 		kuerzen();
 	}
 
+	/**
+	 * Subtraktion zweier Brüche.
+	 * Zwei Brüche werden miteinander subrahiert.
+	 * 
+	 * @param z Objekt mit den Werten aus Zähler und Nenner
+	 */
 	public void sub(Zahl z) {
 		Rational local = (Rational) z;
 		p = p * local.q - local.p * q;
@@ -69,12 +152,27 @@ public class Rational extends Zahl {
 		kuerzen();
 	}
 
+	/** ??????????????????????????????????????????????????????
+	 * <p>Werte für Zähler und Nenner werden festgelegt, der Zähler wird mit dem übergebenen Wert i
+	 * und der Nenner mit dem Wert im Konstruktor festgelegten Wert festgelegt. </p>
+	 * 
+	 * <p>Das Objekt wird an die nächste Methode weitergereicht.
+	 * Der Bruch wird anschließend gekürzt.</p>
+	 * 
+	 * @param i Zähler wird festgelegt mit dem Parameter
+	 */
 	public void sub(int i) {
 		Rational local = new Rational(i);
 		sub(local);
 		kuerzen();
 	}
 	
+	/**
+	 * Multiplikation zweier Brüche.
+	 * Zwei Brüche werden miteinander multipliziert.
+	 * 
+	 * @param z Objekt mit den Werten aus Zähler und Nenner
+	 */
 	public void mul(Zahl z) {
 		Rational local = (Rational) z;
 		p = p * local.p;
@@ -82,12 +180,27 @@ public class Rational extends Zahl {
 		kuerzen();
 	}
 
+	/** ??????????????????????????????????????????????????????
+	 * <p>Werte für Zähler und Nenner werden festgelegt, der Zähler wird mit dem übergebenen Wert i
+	 * und der Nenner mit dem Wert im Konstruktor festgelegten Wert festgelegt. </p>
+	 * 
+	 * <p>Das Objekt wird an die nächste Methode weitergereicht.
+	 * Der Bruch wird anschließend gekürzt.</p>
+	 * 
+	 * @param i Zähler wird festgelegt mit dem Parameter
+	 */
 	public void mul(int i) {
 		Rational local = new Rational(i);
 		mul(local);
 		kuerzen();
 	}
 
+	/**
+	 * Division zweier Brüche.
+	 * Zwei Brüche werden miteinander dividiert.
+	 * 
+	 * @param z Objekt mit den Werten aus Zähler und Nenner
+	 */
 	public void div(Zahl z) {
 		Rational local = (Rational) z;
 		p = p * local.q;
@@ -95,12 +208,27 @@ public class Rational extends Zahl {
 		kuerzen();		
 	}
 
+	/** ??????????????????????????????????????????????????????
+	 * <p>Werte für Zähler und Nenner werden festgelegt, der Zähler wird mit dem übergebenen Wert i
+	 * und der Nenner mit dem Wert im Konstruktor festgelegten Wert festgelegt. </p>
+	 * 
+	 * <p>Das Objekt wird an die nächste Methode weitergereicht.
+	 * Der Bruch wird anschließend gekürzt.</p>
+	 * 
+	 * @param i Zähler wird festgelegt mit dem Parameter
+	 */
 	public void div(int i) {
 		Rational local = new Rational(i);
 		div(local);
 		kuerzen();
 	}
 
+	/**
+	 * Kehrwert eines Bruchs.
+	 * 
+	 * Der Bruch wird in seinen Kehrwert umgestellt, und sichergestellt das der Nenner keine 0 ist.
+	 * Den Kehrwert eines Bruchs erhält man durch Vertauschen von Zähler und Nenner.
+	 */
 	public void kehrwert() {
 		int temp = p;
 		p = q;
@@ -108,10 +236,19 @@ public class Rational extends Zahl {
 		assert (q != 0);
 	}
 
+	/**
+	 * Der Zähler wird negiert.
+	 */
 	public void switchSign() {
 		p = -p;
 	}
 	
+	/**
+	 * Bruch kürzen.
+	 * 
+	 * Der vorhandene Bruch wird gekürzt. In einer eigenen Methode wird der Größte gemeinsame Teiler
+	 * ermittelt. Auch negative Brüche sind berücksichtigt.
+	 */
 	public void kuerzen() {
 		// Vorzeichen merken und Betrag bilden
 		int sign = 1;
@@ -132,10 +269,20 @@ public class Rational extends Zahl {
 
 	}
 
+	/**
+	 * Der Bruch wird geteilt und in Dezimalzahl gewandelt.
+	 * 
+	 * @return Bruch als Dezimalzahl
+	 */
 	public double getDoubleWert() {
 		return (double) p / (double) q;
 	}
 
+	/**
+	 * Es wird geprüft, ob der Bruch einer ganzen Zahl entspricht.
+	 * 
+	 * @return Ergebnis der Prüfung boolischer Wert
+	 */
 	public boolean isInteger() {
 		if (p % q == 0) 
 			return true;
@@ -143,6 +290,13 @@ public class Rational extends Zahl {
 			return false;
 	}
 	
+	/**
+	 * Der größte gemeinsame Teiler wird ermittelt.
+	 * 
+	 * @param x erste Zahl
+	 * @param y zweite Zahl
+	 * @return größte Zahl, durch die beide Zahlen teilbar sind.
+	 */
 	private int ggt(int x, int y) {
 
 		while (y > 0) {
@@ -153,6 +307,7 @@ public class Rational extends Zahl {
 		return x;
 	}
 
+	
 	public Rational add(Rational a, Rational b) {
 
 		a.add(b);
@@ -181,6 +336,12 @@ public class Rational extends Zahl {
 
 	}
 
+	/**
+	 * Eingabe zweier Zahlen und Ausgabe als gekürzten Bruch.
+	 * 
+	 * Die eingegebenen Zahlen sollen einen Bruch ergeben, die erste Zahl ist der Zähler, die zweite 
+	 * Zahl der Nenner. Der eingegebene Bruch wird in gekürzter Form wieder ausgegeben.
+	 */
 	public void eingabe() {
 		Scanner sc = new Scanner(System.in);
 
