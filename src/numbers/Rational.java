@@ -6,14 +6,22 @@ package numbers;
  * <p> Eine Klasse für rationale Zahlen, realisiert als Bruch aus ganzen Zahlen. 
  * Abgeleitet von Zahl.java. </p>
  * 
- * <P>Letzte Änderung: $Date: 2018/09/13 $</p> 
+ * <P>Letzte Änderung: $Date: 2018/09/16 $</p> 
  * @author $Author: demirci $
- * @version $Revision: #2 $
+ * @version $Revision: #3 $
  */
 
 import java.util.Scanner;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class Rational extends Zahl {
+	
+	/**
+	 * Logger
+	 */
+	static final Logger log = LogManager.getLogger("LoggerFuerRest");
 	
 	/**
 	 * Zähler
@@ -32,9 +40,13 @@ public class Rational extends Zahl {
 	 * Anfangsbruch von 1/1. </p>
 	 */
 	public Rational() {
+		if(log.isTraceEnabled()) log.trace("** >> Rational()");
+		
 		this.p = 1;
 		this.q = 1;
+		if(log.isDebugEnabled()) log.debug("** p = " + p + "; q = " + q );
 
+		if(log.isTraceEnabled()) log.trace("** << Rational()");
 	}
 
 	/**
@@ -43,8 +55,13 @@ public class Rational extends Zahl {
 	 * @param z Zähler
 	 */
 	public Rational(int z) {
+		if(log.isTraceEnabled()) log.trace(">> Rational(int)");
+		
 		this.p = z;
 		this.q = 1;
+		if(log.isDebugEnabled()) log.debug("p = " + p + "; q = " + q );
+		
+		if(log.isTraceEnabled()) log.trace("<< Rational(int)");
 	}
 
 	/**
@@ -55,10 +72,17 @@ public class Rational extends Zahl {
 	 * @param n Nenner
 	 */
 	public Rational(int z, int n) {
+		if(log.isTraceEnabled()) log.trace(">> Rational(int, int)");
+		
 		this.p = z;
 		this.q = n;
+		if(log.isDebugEnabled()) log.debug("p = " + p + "; q = " + q );
 		assert (n != 0);
+		
+		if(log.isInfoEnabled()) log.info("Kürzen wird gestartet");
 		kuerzen();
+		
+		if(log.isTraceEnabled()) log.trace("<< Rational(int, int)");
 	}
 	
 	/**
@@ -71,13 +95,24 @@ public class Rational extends Zahl {
 	 */
 	public Rational(Rational other) {
 		this(other.zaehler(), other.nenner());
+		
+		if(log.isTraceEnabled()) log.trace(">> Rational(Rational)");		
+		
+		if(log.isDebugEnabled()) log.debug("p = " + other.zaehler() + "; q = " + other.nenner() );
+		
+		if(log.isTraceEnabled()) log.trace("<< Rational(Rational)");
 	}
 
 	/**
 	 * Ausgabe des Bruches.
 	 */
 	public void print() {
+		if(log.isTraceEnabled()) log.trace(">> Rational.print");
+		
 		System.out.println(p + "/" + q);
+		if(log.isDebugEnabled()) log.debug("p = " + p + "; q = " + q );
+		
+		if(log.isTraceEnabled()) log.trace("<< Rational.print");
 	}
 	
 	/**
@@ -87,8 +122,13 @@ public class Rational extends Zahl {
 	 */
 	@Override
 	public String toString() {
+		if(log.isTraceEnabled()) log.trace(">> Rational.toString");
+		
 		String text = "";
 		text = String.valueOf(p) + "/" + String.valueOf(q);
+		if(log.isDebugEnabled()) log.debug("String ist: " + text);
+		
+		if(log.isTraceEnabled()) log.trace("<< Rational.toString");
 		return text;
 	}
 	
@@ -98,6 +138,9 @@ public class Rational extends Zahl {
 	 * @return Der Zähler wird als Integerwert mitgeteilt
 	 */
 	public int zaehler() {
+		if(log.isTraceEnabled()) log.trace(">> Rational.zaehler");
+		if(log.isDebugEnabled()) log.debug("Zaehler ist: " + p);
+		if(log.isTraceEnabled()) log.trace("<< Rational.zaehler");
 		return p;
 	}
 	
@@ -107,6 +150,9 @@ public class Rational extends Zahl {
 	 * @return Der Nenner wird als Integerwert mitgeteilt
 	 */
 	public int nenner() {
+		if(log.isTraceEnabled()) log.trace(">> Rational.nenner");
+		if(log.isDebugEnabled()) log.debug("Nenner ist: " + p);
+		if(log.isTraceEnabled()) log.trace("<< Rational.nenner");
 		return q;
 	}
 
@@ -117,11 +163,21 @@ public class Rational extends Zahl {
 	 * @param z Objekt mit den Werten aus Zähler und Nenner
 	 */
 	public void add(Zahl z) {
+		if(log.isTraceEnabled()) log.trace(">> Rational.add(Zahl)");
+		
 		Rational local = (Rational) z;
+		if(log.isDebugEnabled()) log.debug("local ist: " + local);
+		
 		p = p * local.q + local.p * q;
 		q = q * local.q;
+		
+		if(log.isDebugEnabled()) log.debug("p ist: " + p);
+		if(log.isDebugEnabled()) log.debug("q ist: " + q);
+		
+		if(log.isInfoEnabled()) log.info("Kürzen wird gestartet.");
 		kuerzen();
-
+		
+		if(log.isTraceEnabled()) log.trace("<< Rational.add(Zahl)");
 	}
 
 	/** 
@@ -136,9 +192,18 @@ public class Rational extends Zahl {
 	 * @param i Zähler wird festgelegt mit dem Parameter
 	 */
 	public void add(int i) {
-		Rational local = new Rational(i);
+		if(log.isTraceEnabled()) log.trace(">> Rational.add(int)");
+		
+		Rational local = new Rational(i);		
+		if(log.isDebugEnabled()) log.debug("local ist: " + local);
+		
+		if(log.isInfoEnabled()) log.info("Methode add(zahl) wird aufgerufen.");
 		add(local);
+		
+		if(log.isInfoEnabled()) log.info("Kürzen wird gestartet.");
 		kuerzen();
+		
+		if(log.isTraceEnabled()) log.trace("<< Rational.add(int)");
 	}
 
 	/**
@@ -149,10 +214,21 @@ public class Rational extends Zahl {
 	 * @param z Objekt mit den Werten aus Zähler und Nenner
 	 */
 	public void sub(Zahl z) {
+		if(log.isTraceEnabled()) log.trace(">> Rational.sub(Zahl)");
+		
 		Rational local = (Rational) z;
+		if(log.isDebugEnabled()) log.debug("local ist: " + local);
+		
 		p = p * local.q - local.p * q;
 		q = q * local.q;
+		
+		if(log.isDebugEnabled()) log.debug("p ist: " + p);
+		if(log.isDebugEnabled()) log.debug("q ist: " + q);
+		
+		if(log.isInfoEnabled()) log.info("Kürzen wird gestartet.");
 		kuerzen();
+		
+		if(log.isTraceEnabled()) log.trace("<< Rational.sub(Zahl)");
 	}
 
 	/** 
@@ -167,9 +243,18 @@ public class Rational extends Zahl {
 	 * @param i Zähler wird festgelegt mit dem Parameter
 	 */
 	public void sub(int i) {
+		if(log.isTraceEnabled()) log.trace(">> Rational.sub(int)");
+		
 		Rational local = new Rational(i);
+		if(log.isDebugEnabled()) log.debug("local ist: " + local);
+		
+		if(log.isInfoEnabled()) log.info("Methode sub(Zahl) wird aufgerufen.");
 		sub(local);
+		
+		if(log.isInfoEnabled()) log.info("Kürzen wird gestartet.");
 		kuerzen();
+		
+		if(log.isTraceEnabled()) log.trace("<< Rational.sub(int)");
 	}
 	
 	/**
@@ -180,10 +265,21 @@ public class Rational extends Zahl {
 	 * @param z Objekt mit den Werten aus Zähler und Nenner
 	 */
 	public void mul(Zahl z) {
+		if(log.isTraceEnabled()) log.trace(">> Rational.mul(Zahl)");
+		
 		Rational local = (Rational) z;
+		if(log.isDebugEnabled()) log.debug("local ist: " + local);
+		
 		p = p * local.p;
 		q = q * local.q;
+		
+		if(log.isDebugEnabled()) log.debug("p ist: " + p);
+		if(log.isDebugEnabled()) log.debug("q ist: " + q);
+		
+		if(log.isInfoEnabled()) log.info("Kürzen wird gestartet.");
 		kuerzen();
+		
+		if(log.isTraceEnabled()) log.trace("<< Rational.mul(Zahl)");
 	}
 
 	/** 
@@ -198,9 +294,18 @@ public class Rational extends Zahl {
 	 * @param i Zähler wird festgelegt mit dem Parameter
 	 */
 	public void mul(int i) {
+		if(log.isTraceEnabled()) log.trace(">> Rational.mul(int)");
+		
 		Rational local = new Rational(i);
+		if(log.isDebugEnabled()) log.debug("local ist: " + local);
+		
+		if(log.isInfoEnabled()) log.info("Methode mul(Zahl) wird aufgerufen.");
 		mul(local);
+		
+		if(log.isInfoEnabled()) log.info("Kürzen wird gestartet.");
 		kuerzen();
+		
+		if(log.isTraceEnabled()) log.trace("<< Rational.mul(int)");
 	}
 
 	/**
@@ -211,10 +316,21 @@ public class Rational extends Zahl {
 	 * @param z Objekt mit den Werten aus Zähler und Nenner
 	 */
 	public void div(Zahl z) {
+		if(log.isTraceEnabled()) log.trace(">> Rational.div(Zahl)");
+		
 		Rational local = (Rational) z;
+		if(log.isDebugEnabled()) log.debug("local ist: " + local);
+		
 		p = p * local.q;
 		q = q * local.p;
+		
+		if(log.isDebugEnabled()) log.debug("p ist: " + p);
+		if(log.isDebugEnabled()) log.debug("q ist: " + q);
+		
+		if(log.isInfoEnabled()) log.info("Kürzen wird gestartet.");
 		kuerzen();		
+		
+		if(log.isTraceEnabled()) log.trace("<< Rational.div(Zahl)");
 	}
 
 	/** 
@@ -229,9 +345,18 @@ public class Rational extends Zahl {
 	 * @param i Zähler wird festgelegt mit dem Parameter
 	 */
 	public void div(int i) {
+		if(log.isTraceEnabled()) log.trace(">> Rational.div(int)");
+		
 		Rational local = new Rational(i);
+		if(log.isDebugEnabled()) log.debug("local ist: " + local);
+		
+		if(log.isInfoEnabled()) log.info("Methode div(Zahl) wird aufgerufen.");
 		div(local);
+		
+		if(log.isInfoEnabled()) log.info("Kürzen wird gestartet.");
 		kuerzen();
+		
+		if(log.isTraceEnabled()) log.trace("<< Rational.div(int)");
 	}
 
 	/**
@@ -241,17 +366,30 @@ public class Rational extends Zahl {
 	 * Den Kehrwert eines Bruchs erhält man durch Vertauschen von Zähler und Nenner.</p>
 	 */
 	public void kehrwert() {
+		if(log.isTraceEnabled()) log.trace(">> Rational.kehrwert");
+		
 		int temp = p;
 		p = q;
 		q = temp;
+		
+		if(log.isDebugEnabled()) log.debug("p ist: " + p);
+		if(log.isDebugEnabled()) log.debug("q ist: " + q);
 		assert (q != 0);
+		
+		if(log.isTraceEnabled()) log.trace("<< Rational.kehrwert");
 	}
 
 	/**
 	 * Der Zähler wird negiert.
 	 */
 	public void switchSign() {
+		if(log.isTraceEnabled()) log.trace(">> Rational.switchSign");
+		if(log.isDebugEnabled()) log.debug("p ist: " + p);
+		
 		p = -p;
+		
+		if(log.isDebugEnabled()) log.debug("p ist: " + p);
+		if(log.isTraceEnabled()) log.trace("<< Rational.switchSign");
 	}
 	
 	/**
@@ -261,6 +399,8 @@ public class Rational extends Zahl {
 	 * ermittelt. Auch negative Brüche sind berücksichtigt.</p>
 	 */
 	public void kuerzen() {
+		if(log.isTraceEnabled()) log.trace(">> Rational.kuerzen");
+		
 		// Vorzeichen merken und Betrag bilden
 		int sign = 1;
 		if (p < 0) {
@@ -273,11 +413,13 @@ public class Rational extends Zahl {
 		}
 
 		int teiler = ggt(p, q);
+		if(log.isDebugEnabled()) log.debug("Teiler ist: " + teiler);
 
 		// Vorzeichen restaurieren
 		p = sign * p / teiler;
 		q = q / teiler;
 
+		if(log.isTraceEnabled()) log.trace("<< Rational.kuerzen");
 	}
 
 	/**
@@ -286,6 +428,9 @@ public class Rational extends Zahl {
 	 * @return Bruch als Dezimalzahl
 	 */
 	public double getDoubleWert() {
+		if(log.isTraceEnabled()) log.trace(">> Rational.getDoubleWert");
+		if(log.isDebugEnabled()) log.debug("Zaehler ist: " + (double) p + "; Nenner ist: " + (double) q);
+		if(log.isTraceEnabled()) log.trace("<< Rational.getDoubleWert");
 		return (double) p / (double) q;
 	}
 
@@ -295,10 +440,15 @@ public class Rational extends Zahl {
 	 * @return Ergebnis der Prüfung boolischer Wert
 	 */
 	public boolean isInteger() {
-		if (p % q == 0) 
-			return true;
-		else
+		if(log.isTraceEnabled()) log.trace(">> Rational.isInteger");
+		
+		if (p % q == 0) {
+			if(log.isTraceEnabled()) log.trace("<< Rational.isInteger");
+			return true;			
+		}else {
+			if(log.isTraceEnabled()) log.trace("<< Rational.isInteger");
 			return false;
+		}
 	}
 	
 	/**
@@ -309,12 +459,17 @@ public class Rational extends Zahl {
 	 * @return größte Zahl, durch die beide Zahlen teilbar sind.
 	 */
 	private int ggt(int x, int y) {
-
+		if(log.isTraceEnabled()) log.trace(">> Rational.ggt");
+		if(log.isDebugEnabled()) log.debug("X ist: " + x );
+		if(log.isDebugEnabled()) log.debug("Y ist: " + y );
+		
 		while (y > 0) {
 			int rest = x % y;
 			x = y;
 			y = rest;
 		}
+		
+		if(log.isTraceEnabled()) log.trace("<< Rational.ggt");
 		return x;
 	}
 
@@ -326,8 +481,12 @@ public class Rational extends Zahl {
 	 * @return Eine rationale Zahl (Ergebnis der Berechnung)
 	 */
 	public Rational add(Rational a, Rational b) {
-
+		if(log.isTraceEnabled()) log.trace(">> Rational.add(Rational, Rational)");
+		
+		if(log.isInfoEnabled()) log.info("Addition wird gestartet.");
 		a.add(b);
+		
+		if(log.isTraceEnabled()) log.trace("<< Rational.add(Rational, Rational)");
 		return a;
 
 	}
@@ -342,8 +501,12 @@ public class Rational extends Zahl {
 	 * @return Eine rationale Zahl (Ergebnis der Berechnung)
 	 */
 	public Rational sub(Rational a, Rational b) {
-
+		if(log.isTraceEnabled()) log.trace(">> Rational.sub(Rational, Rational)");
+		
+		if(log.isInfoEnabled()) log.info("Subtraktion wird gestartet.");
 		a.sub(b);
+		
+		if(log.isTraceEnabled()) log.trace("<< Rational.sub(Rational, Rational)");
 		return a;
 
 	}
@@ -358,8 +521,12 @@ public class Rational extends Zahl {
 	 * @return Eine rationale Zahl (Ergebnis der Berechnung)
 	 */
 	public Rational div(Rational a, Rational b) {
-
+		if(log.isTraceEnabled()) log.trace(">> Rational.div(Rational, Rational)");
+		
+		if(log.isInfoEnabled()) log.info("Division wird gestartet.");
 		a.div(b);
+		
+		if(log.isTraceEnabled()) log.trace("<< Rational.div(Rational, Rational)");
 		return a;
 
 	}
@@ -372,8 +539,12 @@ public class Rational extends Zahl {
 	 * @return Eine rationale Zahl (Ergebnis der Berechnung)
 	 */
 	public Rational mul(Rational a, Rational b) {
-
+		if(log.isTraceEnabled()) log.trace(">> Rational.mul(Rational, Rational)");
+		
+		if(log.isInfoEnabled()) log.info("Multiplikation wird gestartet.");
 		a.mul(b);
+		
+		if(log.isTraceEnabled()) log.trace("<< Rational.mul(Rational, Rational)");
 		return a;
 
 	}
@@ -385,22 +556,34 @@ public class Rational extends Zahl {
 	 * Zahl der Nenner. Der eingegebene Bruch wird in gekürzter Form wieder ausgegeben.</p>
 	 */
 	public void eingabe() {
+		if(log.isTraceEnabled()) log.trace(">> Rational.eingabe");
+		
 		Scanner sc = new Scanner(System.in);
 
+		if(log.isInfoEnabled()) log.info("Geben Sie den Zaehler ein:");
 		System.out.println("Geben Sie den Zaehler ein:");
 		int i = sc.nextInt();
 		p = i;
-
+		if(log.isDebugEnabled()) log.debug("P ist: " + p);
+		
+		if(log.isInfoEnabled()) log.info("Geben Sie den Nenner ein:");
 		System.out.println("Geben Sie den Nenner ein:");
 		i = sc.nextInt();
 		q = i;
+		if(log.isDebugEnabled()) log.debug("Q ist: " + q);
 
 		sc.close();
 
+		if(log.isInfoEnabled()) log.info("Ihre Eingabe:");
 		System.out.println("Ihre Eingabe:");
+		
+		if(log.isInfoEnabled()) log.info("Kürzen wird gestartet");
 		kuerzen();
+		
+		if(log.isInfoEnabled()) log.info("Ausgabe auf Console wird gestartet");
 		print();
-
+		
+		if(log.isTraceEnabled()) log.trace("<< Rational.eingabe");
 	}
 
 }
