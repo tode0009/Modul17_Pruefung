@@ -15,8 +15,12 @@ Das Repository enthält aktuell die folgenden Klassen:
 ## Dokumentation
 - html-Verzeichnis: Eine Dokumentation mit Doxygen
 
+## Logging
+- Log4J wurde als Werkzeug für das Logging in das Projekt eingebunden.
+
 ## Release
-- Eine fertige Version Release1 ist Online.
-- Eine weiterer Release2 ist nun Online.
+- Release1: Klasse Bruch.java wurde erzeugt.
+- Release2: Dokumentation wurde erstellt.
+- Release3: Logging wurde integriert.
 
 
