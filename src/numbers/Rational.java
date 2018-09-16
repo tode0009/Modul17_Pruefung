@@ -55,13 +55,13 @@ public class Rational extends Zahl {
 	 * @param z Zähler
 	 */
 	public Rational(int z) {
-		if(log.isTraceEnabled()) log.trace(">> Rational(int)");
+		if(log.isTraceEnabled()) log.trace("** >> Rational(int)");
 		
 		this.p = z;
 		this.q = 1;
 		if(log.isDebugEnabled()) log.debug("-- Rational(int) -> p = " + p + "; q = " + q );
 		
-		if(log.isTraceEnabled()) log.trace("<< Rational(int)");
+		if(log.isTraceEnabled()) log.trace("** << Rational(int)");
 	}
 
 	/**
@@ -72,7 +72,7 @@ public class Rational extends Zahl {
 	 * @param n Nenner
 	 */
 	public Rational(int z, int n) {
-		if(log.isTraceEnabled()) log.trace(">> Rational(int, int)");
+		if(log.isTraceEnabled()) log.trace("** >> Rational(int, int)");
 		
 		this.p = z;
 		this.q = n;
@@ -82,7 +82,7 @@ public class Rational extends Zahl {
 		if(log.isInfoEnabled()) log.info("Kürzen wird gestartet");
 		kuerzen();
 		
-		if(log.isTraceEnabled()) log.trace("<< Rational(int, int)");
+		if(log.isTraceEnabled()) log.trace("** << Rational(int, int)");
 	}
 	
 	/**
@@ -96,11 +96,11 @@ public class Rational extends Zahl {
 	public Rational(Rational other) {
 		this(other.zaehler(), other.nenner());
 		
-		if(log.isTraceEnabled()) log.trace(">> Rational(Rational)");		
+		if(log.isTraceEnabled()) log.trace("** >> Rational(Rational)");		
 		
 		if(log.isDebugEnabled()) log.debug("-- Rational(Rational) -> p = " + other.zaehler() + "; q = " + other.nenner() );
 		
-		if(log.isTraceEnabled()) log.trace("<< Rational(Rational)");
+		if(log.isTraceEnabled()) log.trace("** << Rational(Rational)");
 	}
 
 	/**
