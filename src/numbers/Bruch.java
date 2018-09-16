@@ -15,7 +15,10 @@ import org.apache.logging.log4j.Logger;
  */
 
 public class Bruch {
-
+	
+	/**
+	 * Logger
+	 */
 	static final Logger log = LogManager.getLogger();
 	
 	public static void main(String[] args) {
