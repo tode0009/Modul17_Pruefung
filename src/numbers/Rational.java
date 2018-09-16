@@ -44,7 +44,7 @@ public class Rational extends Zahl {
 		
 		this.p = 1;
 		this.q = 1;
-		if(log.isDebugEnabled()) log.debug("** p = " + p + "; q = " + q );
+		if(log.isDebugEnabled()) log.debug("-- Rational() -> p = " + p + "; q = " + q );
 
 		if(log.isTraceEnabled()) log.trace("** << Rational()");
 	}
@@ -59,7 +59,7 @@ public class Rational extends Zahl {
 		
 		this.p = z;
 		this.q = 1;
-		if(log.isDebugEnabled()) log.debug("p = " + p + "; q = " + q );
+		if(log.isDebugEnabled()) log.debug("-- Rational(int) -> p = " + p + "; q = " + q );
 		
 		if(log.isTraceEnabled()) log.trace("<< Rational(int)");
 	}
@@ -76,7 +76,7 @@ public class Rational extends Zahl {
 		
 		this.p = z;
 		this.q = n;
-		if(log.isDebugEnabled()) log.debug("p = " + p + "; q = " + q );
+		if(log.isDebugEnabled()) log.debug("-- Rational(int, int) ->p = " + p + "; q = " + q );
 		assert (n != 0);
 		
 		if(log.isInfoEnabled()) log.info("Kürzen wird gestartet");
@@ -98,7 +98,7 @@ public class Rational extends Zahl {
 		
 		if(log.isTraceEnabled()) log.trace(">> Rational(Rational)");		
 		
-		if(log.isDebugEnabled()) log.debug("p = " + other.zaehler() + "; q = " + other.nenner() );
+		if(log.isDebugEnabled()) log.debug("-- Rational(Rational) -> p = " + other.zaehler() + "; q = " + other.nenner() );
 		
 		if(log.isTraceEnabled()) log.trace("<< Rational(Rational)");
 	}
@@ -110,7 +110,7 @@ public class Rational extends Zahl {
 		if(log.isTraceEnabled()) log.trace(">> Rational.print");
 		
 		System.out.println(p + "/" + q);
-		if(log.isDebugEnabled()) log.debug("p = " + p + "; q = " + q );
+		if(log.isDebugEnabled()) log.debug("-- print() -> p = " + p + "; q = " + q );
 		
 		if(log.isTraceEnabled()) log.trace("<< Rational.print");
 	}
@@ -126,7 +126,7 @@ public class Rational extends Zahl {
 		
 		String text = "";
 		text = String.valueOf(p) + "/" + String.valueOf(q);
-		if(log.isDebugEnabled()) log.debug("String ist: " + text);
+		if(log.isDebugEnabled()) log.debug("-- toString() -> String ist: " + text);
 		
 		if(log.isTraceEnabled()) log.trace("<< Rational.toString");
 		return text;
@@ -139,7 +139,7 @@ public class Rational extends Zahl {
 	 */
 	public int zaehler() {
 		if(log.isTraceEnabled()) log.trace(">> Rational.zaehler");
-		if(log.isDebugEnabled()) log.debug("Zaehler ist: " + p);
+		if(log.isDebugEnabled()) log.debug("-- zaehler() -> Zaehler ist: " + p);
 		if(log.isTraceEnabled()) log.trace("<< Rational.zaehler");
 		return p;
 	}
@@ -151,7 +151,7 @@ public class Rational extends Zahl {
 	 */
 	public int nenner() {
 		if(log.isTraceEnabled()) log.trace(">> Rational.nenner");
-		if(log.isDebugEnabled()) log.debug("Nenner ist: " + p);
+		if(log.isDebugEnabled()) log.debug("-- nenner() -> Nenner ist: " + p);
 		if(log.isTraceEnabled()) log.trace("<< Rational.nenner");
 		return q;
 	}
@@ -166,13 +166,13 @@ public class Rational extends Zahl {
 		if(log.isTraceEnabled()) log.trace(">> Rational.add(Zahl)");
 		
 		Rational local = (Rational) z;
-		if(log.isDebugEnabled()) log.debug("local ist: " + local);
+		if(log.isDebugEnabled()) log.debug("-- add(Zahl) -> local ist: " + local);
 		
 		p = p * local.q + local.p * q;
 		q = q * local.q;
 		
-		if(log.isDebugEnabled()) log.debug("p ist: " + p);
-		if(log.isDebugEnabled()) log.debug("q ist: " + q);
+		if(log.isDebugEnabled()) log.debug("-- add(Zahl) -> p ist: " + p);
+		if(log.isDebugEnabled()) log.debug("-- add(Zahl) -> q ist: " + q);
 		
 		if(log.isInfoEnabled()) log.info("Kürzen wird gestartet.");
 		kuerzen();
@@ -195,7 +195,7 @@ public class Rational extends Zahl {
 		if(log.isTraceEnabled()) log.trace(">> Rational.add(int)");
 		
 		Rational local = new Rational(i);		
-		if(log.isDebugEnabled()) log.debug("local ist: " + local);
+		if(log.isDebugEnabled()) log.debug("-- add(int) -> local ist: " + local);
 		
 		if(log.isInfoEnabled()) log.info("Methode add(zahl) wird aufgerufen.");
 		add(local);
@@ -217,13 +217,13 @@ public class Rational extends Zahl {
 		if(log.isTraceEnabled()) log.trace(">> Rational.sub(Zahl)");
 		
 		Rational local = (Rational) z;
-		if(log.isDebugEnabled()) log.debug("local ist: " + local);
+		if(log.isDebugEnabled()) log.debug("-- sub(Zahl) -> local ist: " + local);
 		
 		p = p * local.q - local.p * q;
 		q = q * local.q;
 		
-		if(log.isDebugEnabled()) log.debug("p ist: " + p);
-		if(log.isDebugEnabled()) log.debug("q ist: " + q);
+		if(log.isDebugEnabled()) log.debug("-- sub(Zahl) -> p ist: " + p);
+		if(log.isDebugEnabled()) log.debug("-- sub(Zahl) -> q ist: " + q);
 		
 		if(log.isInfoEnabled()) log.info("Kürzen wird gestartet.");
 		kuerzen();
@@ -246,7 +246,7 @@ public class Rational extends Zahl {
 		if(log.isTraceEnabled()) log.trace(">> Rational.sub(int)");
 		
 		Rational local = new Rational(i);
-		if(log.isDebugEnabled()) log.debug("local ist: " + local);
+		if(log.isDebugEnabled()) log.debug("-- sub(int) -> local ist: " + local);
 		
 		if(log.isInfoEnabled()) log.info("Methode sub(Zahl) wird aufgerufen.");
 		sub(local);
@@ -268,13 +268,13 @@ public class Rational extends Zahl {
 		if(log.isTraceEnabled()) log.trace(">> Rational.mul(Zahl)");
 		
 		Rational local = (Rational) z;
-		if(log.isDebugEnabled()) log.debug("local ist: " + local);
+		if(log.isDebugEnabled()) log.debug("-- mul(Zahl) -> local ist: " + local);
 		
 		p = p * local.p;
 		q = q * local.q;
 		
-		if(log.isDebugEnabled()) log.debug("p ist: " + p);
-		if(log.isDebugEnabled()) log.debug("q ist: " + q);
+		if(log.isDebugEnabled()) log.debug("-- mul(Zahl) -> p ist: " + p);
+		if(log.isDebugEnabled()) log.debug("-- mul(Zahl) -> q ist: " + q);
 		
 		if(log.isInfoEnabled()) log.info("Kürzen wird gestartet.");
 		kuerzen();
@@ -297,7 +297,7 @@ public class Rational extends Zahl {
 		if(log.isTraceEnabled()) log.trace(">> Rational.mul(int)");
 		
 		Rational local = new Rational(i);
-		if(log.isDebugEnabled()) log.debug("local ist: " + local);
+		if(log.isDebugEnabled()) log.debug("-- mul(int) -> local ist: " + local);
 		
 		if(log.isInfoEnabled()) log.info("Methode mul(Zahl) wird aufgerufen.");
 		mul(local);
@@ -319,13 +319,13 @@ public class Rational extends Zahl {
 		if(log.isTraceEnabled()) log.trace(">> Rational.div(Zahl)");
 		
 		Rational local = (Rational) z;
-		if(log.isDebugEnabled()) log.debug("local ist: " + local);
+		if(log.isDebugEnabled()) log.debug("-- div(Zahl) -> local ist: " + local);
 		
 		p = p * local.q;
 		q = q * local.p;
 		
-		if(log.isDebugEnabled()) log.debug("p ist: " + p);
-		if(log.isDebugEnabled()) log.debug("q ist: " + q);
+		if(log.isDebugEnabled()) log.debug("-- div(Zahl) -> p ist: " + p);
+		if(log.isDebugEnabled()) log.debug("-- div(Zahl) -> q ist: " + q);
 		
 		if(log.isInfoEnabled()) log.info("Kürzen wird gestartet.");
 		kuerzen();		
@@ -348,7 +348,7 @@ public class Rational extends Zahl {
 		if(log.isTraceEnabled()) log.trace(">> Rational.div(int)");
 		
 		Rational local = new Rational(i);
-		if(log.isDebugEnabled()) log.debug("local ist: " + local);
+		if(log.isDebugEnabled()) log.debug("-- div(int) -> local ist: " + local);
 		
 		if(log.isInfoEnabled()) log.info("Methode div(Zahl) wird aufgerufen.");
 		div(local);
@@ -372,8 +372,8 @@ public class Rational extends Zahl {
 		p = q;
 		q = temp;
 		
-		if(log.isDebugEnabled()) log.debug("p ist: " + p);
-		if(log.isDebugEnabled()) log.debug("q ist: " + q);
+		if(log.isDebugEnabled()) log.debug("-- kehrwert() -> p ist: " + p);
+		if(log.isDebugEnabled()) log.debug("-- kehrwert() -> q ist: " + q);
 		assert (q != 0);
 		
 		if(log.isTraceEnabled()) log.trace("<< Rational.kehrwert");
@@ -384,11 +384,11 @@ public class Rational extends Zahl {
 	 */
 	public void switchSign() {
 		if(log.isTraceEnabled()) log.trace(">> Rational.switchSign");
-		if(log.isDebugEnabled()) log.debug("p ist: " + p);
+		if(log.isDebugEnabled()) log.debug("-- switchSign() -> p ist: " + p);
 		
 		p = -p;
 		
-		if(log.isDebugEnabled()) log.debug("p ist: " + p);
+		if(log.isDebugEnabled()) log.debug("-- switchSign() -> p ist: " + p);
 		if(log.isTraceEnabled()) log.trace("<< Rational.switchSign");
 	}
 	
@@ -413,7 +413,7 @@ public class Rational extends Zahl {
 		}
 
 		int teiler = ggt(p, q);
-		if(log.isDebugEnabled()) log.debug("Teiler ist: " + teiler);
+		if(log.isDebugEnabled()) log.debug("-- kuerzen() -> Teiler ist: " + teiler);
 
 		// Vorzeichen restaurieren
 		p = sign * p / teiler;
@@ -429,7 +429,7 @@ public class Rational extends Zahl {
 	 */
 	public double getDoubleWert() {
 		if(log.isTraceEnabled()) log.trace(">> Rational.getDoubleWert");
-		if(log.isDebugEnabled()) log.debug("Zaehler ist: " + (double) p + "; Nenner ist: " + (double) q);
+		if(log.isDebugEnabled()) log.debug("-- getDoubleWert() -> Zaehler ist: " + (double) p + "; Nenner ist: " + (double) q);
 		if(log.isTraceEnabled()) log.trace("<< Rational.getDoubleWert");
 		return (double) p / (double) q;
 	}
@@ -460,8 +460,8 @@ public class Rational extends Zahl {
 	 */
 	private int ggt(int x, int y) {
 		if(log.isTraceEnabled()) log.trace(">> Rational.ggt");
-		if(log.isDebugEnabled()) log.debug("X ist: " + x );
-		if(log.isDebugEnabled()) log.debug("Y ist: " + y );
+		if(log.isDebugEnabled()) log.debug("-- ggt() -> X ist: " + x );
+		if(log.isDebugEnabled()) log.debug("-- ggt() -> Y ist: " + y );
 		
 		while (y > 0) {
 			int rest = x % y;
@@ -564,13 +564,13 @@ public class Rational extends Zahl {
 		System.out.println("Geben Sie den Zaehler ein:");
 		int i = sc.nextInt();
 		p = i;
-		if(log.isDebugEnabled()) log.debug("P ist: " + p);
+		if(log.isDebugEnabled()) log.debug("-- eingabe() -> P ist: " + p);
 		
 		if(log.isInfoEnabled()) log.info("Geben Sie den Nenner ein:");
 		System.out.println("Geben Sie den Nenner ein:");
 		i = sc.nextInt();
 		q = i;
-		if(log.isDebugEnabled()) log.debug("Q ist: " + q);
+		if(log.isDebugEnabled()) log.debug("-- eingabe() -> Q ist: " + q);
 
 		sc.close();
 
