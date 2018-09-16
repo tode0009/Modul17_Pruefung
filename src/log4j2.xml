@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Konfiguration für Log4j2
+     $Author: demirci $
+     $Revision: #1 $
+     $Id: //Modul17_Prüfung/src/log4j2.xml $
+     $Date: 2018/09/16 $
+     -->
+<Configuration status="WARN">
+<Appenders>
+	<Console name="Console" target="SYSTEM_OUT">
+		<PatternLayout>
+			<Pattern>"%d{dd.MM.YYYY HH:mm:ss} [%t] %-5level %logger{36} - %msg%n" </Pattern>
+		</PatternLayout>
+	</Console>
+	
+     <File name="BruchLogger" fileName="logs/Bruch.log" append="false">
+      <PatternLayout>
+         <Pattern>%d{dd.MM.YYYY HH:mm:ss} [%-5level] %logger{36} - %msg%n</Pattern>
+      </PatternLayout>
+     </File>
+     <Async name="BruchLogger-Async">
+     	<AppenderRef ref="BruchLogger"/>
+     </Async>
+     
+     <File name="LoggerFuerRest" fileName="logs/Rest.log" append="false">
+      <PatternLayout>
+         <Pattern>%d{dd.MM.YYYY HH:mm:ss} [%-5level] %logger{36} - %msg%n</Pattern>
+      </PatternLayout>
+     </File>
+     <Async name="RestLogger-Async">
+     	<AppenderRef ref="LoggerFuerRest"/>
+     </Async>
+</Appenders>
+
+<Loggers>
+	<!-- Konfiguration für den Logger in der Klasse Bruch -->
+    <Logger name="numbers.Bruch" level="TRACE" additivity="false">
+        <AppenderRef ref="BruchLogger-Async"/>
+    </Logger>
+    <!--  Konfiguration für den Logger der in den restlichen Klassen integriert wird -->
+    <Logger name="LoggerFuerRest" level="TRACE" additivity="false">
+        <AppenderRef ref="RestLogger-Async"/>
+    </Logger>
+	<!-- Konfiguration für die restlichen Logger -->
+    <Root level="Error">
+      <AppenderRef ref="Console" />
+    </Root>
+</Loggers>
+</Configuration>
