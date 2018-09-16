@@ -6,6 +6,7 @@
 *.ear
 /bin/
 doc/
+logs/
 
 # vi etc
 *~
