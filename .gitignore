@@ -4,6 +4,7 @@
 *.jar
 *.war
 *.ear
+*.old
 /bin/
 doc/
 logs/
