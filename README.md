@@ -12,8 +12,13 @@ Das Repository enthält aktuell die folgenden Klassen:
 - RationalTest.java: JUnit-Test. Sie können diese Datei ignorieren, wenn Sie keine Unit-Tests durchführen möchten.
 - Bruch.java: kleines Programm, hier werden Eingaben für einen Bruch getätigt, dieser Bruch wird wenn möglich gekürzt und ausgegeben.
 
+## Build-Werkzeug
+- Projekt wurde in ein Maven Projekt umstrukturiert.
+- pom.xml: sind alle eingebundenen Plugins und Dependencies ersichtlich.
+
 ## Dokumentation
-- html-Verzeichnis: Eine Dokumentation mit Doxygen
+- Eine Dokumentation mit Doxygen wird erstellt.
+- wird mit Doxyfile Konfiguration zusammengestellt
 
 ## Logging
 - Log4J wurde als Werkzeug für das Logging in das Projekt eingebunden.
@@ -22,5 +27,6 @@ Das Repository enthält aktuell die folgenden Klassen:
 - Release1: Klasse Bruch.java wurde erzeugt.
 - Release2: Dokumentation wurde erstellt.
 - Release3: Logging wurde integriert.
+- Release4: Projekt wurde in ein Maven-Projekt umstrukturiert.
 
 
