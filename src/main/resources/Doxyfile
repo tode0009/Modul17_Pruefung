@@ -22,14 +22,14 @@ PROJECT_NUMBER         = 0.0.1-SNAPSHOT
 # pixels and the maximum width should not exceed 200 pixels. Doxygen will copy
 # the logo to the output directory.
 
-PROJECT_LOGO           = "C:/Users/LCDDCD/workspace-eclipse/Modul17_Pruefung/src/main/resources/images/rationaleZahlen.jpg"
+PROJECT_LOGO           = "./src/main/resources/images/rationaleZahlen.jpg"
 
 # The OUTPUT_DIRECTORY tag is used to specify the (relative or absolute) 
 # base path where the generated documentation will be put. 
 # If a relative path is entered, it will be relative to the location 
 # where doxygen was started. If left blank the current directory will be used.
 
-OUTPUT_DIRECTORY       = "C:\Users\LCDDCD\workspace-eclipse\Modul17_Pruefung\target\doxygen_doc"
+OUTPUT_DIRECTORY       = "./target/doxygen_doc"
 
 # If the CREATE_SUBDIRS tag is set to YES, then doxygen will create 
 # 4096 sub-directories (in 2 levels) under the output directory of each output 
