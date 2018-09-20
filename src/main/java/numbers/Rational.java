@@ -1,5 +1,7 @@
 package numbers;
 
+import java.util.Scanner;
+
 /**
  * Eine Klasse für rationale Zahlen.
  * 
@@ -10,8 +12,6 @@ package numbers;
  * @author $Author: demirci $
  * @version $Revision: #3 $
  */
-
-import java.util.Scanner;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
