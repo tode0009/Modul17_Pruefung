@@ -43,7 +43,7 @@ public class Bruch {
      * \mainpage
      * Rechnen mit Rationalen Zahlen
      * 
-     * \image html rationaleZahlen66.jpg "Das Projekt-Logo"
+     * \image html rationaleZahlen.jpg "Das Projekt-Logo"
      * 
      * Dies ist die Hauptseite der mit Doxygen erzeugten HTML-Dokumentation. In dieser
      * Version wurden Javadoc-Kommentare verwendet.
