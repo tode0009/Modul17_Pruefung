@@ -1,6 +1,8 @@
 package numbers;
 
 import java.util.Scanner;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * Eine Klasse für rationale Zahlen.
@@ -12,9 +14,6 @@ import java.util.Scanner;
  * @author $Author: demirci $
  * @version $Revision: #3 $
  */
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 public class Rational extends Zahl {
 	
