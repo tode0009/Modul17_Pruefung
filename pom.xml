@@ -74,6 +74,7 @@
              <haveGraph>true</haveGraph>
              <generateLatex>false</generateLatex>
              <generateHtml>true</generateHtml>
+             <dotPath>/usr/bin</dotPath>
 			 <configurationFile>${basedir}/src/main/resources/Doxyfile</configurationFile>
              <outputDirectory>${basedir}/target/doxygen_doc</outputDirectory>
          </configuration>
